@@ -63,7 +63,7 @@ func (s PluginMetaSet) WithName(name string) PluginMetaSet {
 // WithVersion returns the subset of metas that have the given version.
 //
 // This should be used only with the "valid" result from ValidateVersions;
-// it will ignore any plugin metas that have a invalid version strings.
+// it will ignore any plugin metas that have invalid version strings.
 func (s PluginMetaSet) WithVersion(version Version) PluginMetaSet {
 	ns := make(PluginMetaSet)
 	for p := range s {
@@ -186,7 +186,7 @@ func (s PluginMetaSet) OverridePaths(paths map[string]string) PluginMetaSet {
 	for name, path := range paths {
 		ret.Add(PluginMeta{
 			Name:    name,
-			Version: "0.0.0",
+			Version: VersionZero,
 			Path:    path,
 		})
 	}
